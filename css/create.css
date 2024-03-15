@@ -1,11 +1,12 @@
 /* Select and input styles */
-select, input[type="month"], input[type="submit"] {
-    width: calc(100% - 22px); /* Set width for dropdown, month input, and submit button */
+select, input[type="month"], input[type="submit"], input[type="text"] {
+    width: calc(100% - 22px); /* Set width for inputs to 100% */
     padding: 10px; /* Add padding */
     border-radius: 5px; /* Add round edges */
     text-align: left; /* Align text to the left */
-    margin-top: 5px; /* Add margin on top of inputs */
+    margin-top: 10px; /* Add margin on top of inputs */
     vertical-align: top; /* Align inputs to the top */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
 /* Label styles */
@@ -13,10 +14,8 @@ label {
     font-family: 'Montserrat-Bold';
     color: #000000;
     margin-bottom: 5px; /* Adjust margin-bottom */
-    align-self: flex-start; /* Align labels to the start */
-    display: inline-block; /* Make labels inline */
-    vertical-align: top; /* Align labels to the top */
-    margin-right: 10px; /* Add margin to the right */
+    display: block; /* Change to block to stack labels vertically */
+    margin-top: 20px;
 }
 
 /* Dropdown styles */
@@ -51,9 +50,9 @@ input[type="submit"] {
     background-color: #e50019;
     font-family: 'Montserrat-Bold', sans-serif;
     transition: box-shadow 0.3s, background-color 0.3s;
-    margin-top: 5px; /* Add margin on top */
-    margin-left: 10px; /* Add margin to the left */
+    margin-top: 10px; /* Add margin on top */
     cursor: pointer; /* Change cursor on hover */
+    text-align: center;
 }
 
 input[type="submit"]:hover {
@@ -62,7 +61,14 @@ input[type="submit"]:hover {
 
 /* Style for the form container */
 .form-container {
-    padding: 20px; /* Add padding */
-    max-width: 600px; /* Set maximum width for the form container */
+    padding: 0 20px; /* Add padding */
+    max-width: 60%; /* Set maximum width for the form container */
     margin: 0 auto; /* Center the form container horizontally */
+}
+
+p {
+    padding: 20px; /* Add padding */
+    font-family: 'Montserrat-Bold', sans-serif;
+    text-align: center;
+    color: #e50019;
 }

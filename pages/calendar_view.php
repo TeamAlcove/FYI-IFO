@@ -135,7 +135,7 @@ if (isset($_GET['facility']) && isset($_GET['month'])) {
         }
     }
 } else {
-    echo "<p style=\"color: #000; text-align: center;\">Please select a facility and a month to display the calendar.</p>";
+    echo "<p style=\"color: #000; position: relative; text-align: center;\">Please select a facility and a month to display the calendar.</p>";
 }
 ?>
 </div>

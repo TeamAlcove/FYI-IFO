@@ -1,0 +1,20 @@
+/* Fonts */
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+.permit-details {
+    padding-left: 50px;
+    font-family: "Montserrat-Regular", sans-serif;
+    line-height: 1.5; /* Adjust the value as needed */
+}
+
+.permit-details b {
+    font-family: "Montserrat-Bold", sans-serif;
+}

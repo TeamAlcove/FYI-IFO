@@ -7,38 +7,31 @@
     <!-- Include CSS and JS files for date and time pickers -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel = "stylesheet" href ="../css/styles.css">
+    <link rel = "stylesheet" href ="../css/details.css">
 
-    <style>
-        nav{
-            display: flex;
-        }
-
-        .headerItems{
-            padding: 0.5%;
-        }
-        .headerItems{
-            padding:2%;
-        }
-
-        nav{
-            margin-bottom: 2%;
-        }
-    </style>
 </head>
 <body>
 <header>
-    <div class="branding">
-        <div>
-            <h1>MGA ACCLING</h1>
-        </div>
+    <div class="header-container">
+        <a href="../home.php"><img src="../images/MMCM_Logo_noname.png" alt="Header Image"></a>
+        <h1>Institutional Facilities Office</h1>
+        <nav>
+            <div class="navbar">
+                <ul>
+                    <li><a class="headerItems" href="server1.php">Create a Record</a></li>
+                    <li><a class="headerItems" href="server2.php">Usage Permit</a></li>
+                    <li><a class="headerItems" href="calendar_view.php">Calendar View</a></li>
+                    <li><a class="headerItems" href="usage_facility.php">All Tables</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <nav>
-        <a class="headerItems" href="server1.php">Create a Record</a>
-        <a class="headerItems" href="usage_facility.php">All Tables</a>
-        <a class="headerItems" href="formview.php">Usage Permit Form</a>
-        <a class="headerItems" href="calendar_view.php">Calendar View</a>
-    </nav>
 </header>
+
+<div class="port-image">
+    <h2>Permit Details</h2>
+</div
 
 <table class="mainContents" border="1">
 <?php
@@ -71,23 +64,27 @@ if(isset($_GET['date'])) {
     if ($result) {
         if ($result->num_rows > 0) {
             // Output permit details
+            echo '<div class="permit-details">';
             while($row = $result->fetch_assoc()) {
-                echo "Usage Facility ID: " . $row["Usage_Faci_ID"]. "<br>";
-                echo "Event Date: " . $row["Event_Date"]. "<br>";
-                echo "Event Time: " . $row["Event_Time"]. "<br>";
-                echo "Facility ID: " . $row["Facility_ID"]. "<br>";
-                echo "Activity ID: " . $row["Activity_ID"]. "<br>";
-                echo "Permit ID: " . $row["Permit_ID"]. "<br>";
+                echo "<b>Usage Facility ID:</b> " . $row["Usage_Faci_ID"]. "<br>";
+                echo "<b>Event Date:</b> " . $row["Event_Date"]. "<br>";
+                echo "<b>Event Time:</b> " . $row["Event_Time"]. "<br>";
+                echo "<b>Facility ID:</b> " . $row["Facility_ID"]. "<br>";
+                echo "<b>Activity ID:</b> " . $row["Activity_ID"]. "<br>";
+                echo "<b>Permit ID:</b> " . $row["Permit_ID"]. "<br>";
             }
+            echo "</div>";
         } else {
             echo "No permit details found for the selected date.";
         }
     } else {
         echo "Error executing query: " . $conn->error;
     }
-} else {
-    echo "Date parameter is missing.";
-}
+
+    } else {
+        echo "Date parameter is missing.";
+    }
+
 
 // Close the database connection
 $conn->close();

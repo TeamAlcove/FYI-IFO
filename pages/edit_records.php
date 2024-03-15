@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel = "stylesheet" href ="../css/styles.css">
     <link rel = "stylesheet" href ="../css/edit.css">
+    <link rel="icon" type="image/x-icon" href="../images/MMCM_Logo_noname.png">
+
 
     <style>
         label {
@@ -26,8 +28,8 @@
 
 <header>
     <div class="header-container">
-        <a href = "../home.php"><img src="../images/MMCM_Logo_noname.png" alt="Header Image"></a>
-        <h1>Institutional Facilities Office</h1> 
+        <a href="../home.php"><img src="../images/MMCM_Logo_noname.png" alt="Header Image"></a>
+        <h1>Institutional Facilities Office</h1>
         <nav>
             <div class="navbar">
                 <ul>
@@ -41,9 +43,9 @@
     </div>
 </header>
 
-<div class = "port-image">
+<div class="port-image">
     <h2>Edit Record</h2>
-</div>
+</div
 
 <?php
 // Database connection
@@ -87,36 +89,35 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            // Display the form with pre-filled data for editin
             echo "<div class='form-container'>";
             echo "<form method='post'>";
-            echo "<input type='hidden' name='table' value='$table'>";
-            echo "<input type='hidden' name='id' value='$record_id'>";
+            echo "<input type='hidden' name='table' value='" . $table . "'>";
+            echo "<input type='hidden' name='id' value='" . $record_id . "'>";
             foreach ($row as $key => $value) {
                 echo "<div class='form-field'>";
-                echo "<label for='$key'>$key:</label>";
+                echo "<label for='" . $key . "'>" . $key . ":</label>";
                 if ($key === 'date') {
                     // Date picker
-                    echo "<input type='text' id='$key' name='$key' value='$value' class='datepicker'>";
+                    echo "<input type='text' id='" . $key . "' name='" . $key . "' value='" . $value . "' class='datepicker'>";
                 } elseif ($key === 'time') {
                     // Time picker
-                    echo "<input type='text' id='$key' name='$key' value='$value' class='timepicker'>";
+                    echo "<input type='text' id='" . $key . "' name='" . $key . "' value='" . $value . "' class='timepicker'>";
                 } elseif (substr($key, -3) === '_id') {
                     // Foreign key dropdown
                     $foreign_key = substr($key, 0, -3);
                     $sql_fk = "SELECT * FROM $foreign_key";
                     $result_fk = $conn->query($sql_fk);
-                    echo "<select name='$key'>";
+                    echo "<select name='" . $key . "'>";
                     while ($fk_row = $result_fk->fetch_assoc()) {
                         $option_value = $fk_row[$foreign_key . '_id'];
                         $option_text = $fk_row['name']; // Change 'name' to the appropriate column name
                         $selected = ($value == $option_value) ? 'selected' : '';
-                        echo "<option value='$option_value' $selected>$option_text</option>";
+                        echo "<option value='" . $option_value . "' " . $selected . ">" . $option_text . "</option>";
                     }
                     echo "</select>";
                 } else {
                     // Normal text input
-                    echo "<input type='text' id='$key' name='$key' value='$value'>";
+                    echo "<input type='text' id='" . $key . "' name='" . $key . "' value='" . $value . "'>";
                 }
                 echo "</div>";
             }
@@ -127,7 +128,7 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
             echo "</div>";
             echo "</form>";
             echo "</div>";
-
+            
 
             // Process the form submission
             if (isset($_POST['update'])) {

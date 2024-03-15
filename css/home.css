@@ -26,15 +26,9 @@ header {
 
 /* Logo */
 .header-container img {
-    max-width: 100px;
+    max-width: 300px;
     height: auto;
     margin-right: 10px; /* Add right margin to create space between logo and text */
-}
-
-/* Heading */
-.header-container h1 {
-    font-family: 'Montserrat-Bold';
-    margin-left: 10px; /* Add left margin to create space between logo and text */
 }
 
 /* Glow effect */
@@ -120,3 +114,39 @@ body {
     width: 100%;
     box-sizing: border-box; /* Ensures padding is included in the width */
 }
+
+.main-content{
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Montserrat-Bold';
+    font-size: 100px;
+    color: #242323;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.main-content button {
+    width: auto;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px 35px; /* Adjust padding as needed */
+    border-radius: 50px;
+    position: relative;
+    border: 0;
+    outline: 0;
+    background-color: #e50019;
+    font-family: 'Montserrat-Bold', sans-serif;
+    transition: box-shadow 0.3s, background-color 0.3s;
+    margin-top: 100px;
+    display: block; /* Make it a block-level element */
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none; /* Remove underline */
+}
+
+.main-content button:hover {
+    box-shadow: 0 0 20px #e500194d; /* Add box shadow */
+}
+

@@ -76,7 +76,7 @@
                 }
 
                 if (empty($columns)) {
-                    echo "No valid columns found for the selected table.<br>";
+                    echo '<p>No valid columns found for the selected table.<br></p>';
                 } else {
                     // Retrieve column data types
                     $types = '';

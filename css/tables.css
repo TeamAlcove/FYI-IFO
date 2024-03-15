@@ -15,7 +15,8 @@ h2 {
 
 /* Table styles */
 .table-container {
-    padding: 5px 50px; 
+    padding: 5px 20px; /* Adjust padding as needed */
+    overflow-x: auto; /* Add horizontal scrollbar if content overflows */
 }
 
 table {
@@ -31,7 +32,6 @@ th, td {
 
 td {
     font-family: "Montserrat-Regular", sans-serif;
-    
 }
 
 th {
@@ -39,9 +39,11 @@ th {
     font-family: "Montserrat-Bold", sans-serif;
     text-align: center;
 }
+
 tr:hover {
     background-color: #f2f2f2; /* Highlight rows on hover */
 }
+
 /* Additional styling for specific elements */
 .mainContents {
     margin-top: 20px; /* Add some margin above the table */

@@ -18,11 +18,11 @@ p {
 }
 
 .form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    margin-left: 100px; /* Add left margin */
+    max-width: 70%; /* Adjust max-width */
+    margin: 100px auto 0 250px; /* Adjust margins to move the form to the right */
+    padding: 20px; /* Adjust padding */
 }
+
 
 
 .form-field {
@@ -37,11 +37,12 @@ p {
 
 .form-field input,
 .form-field select {
-    width: calc(100% - 100px);
+    width: 70%; /* Adjust width */
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
 .form-field select {
