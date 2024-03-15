@@ -1,0 +1,48 @@
+/* Fonts */
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+/* Header Image */
+.port-image {
+    position: relative;
+    background-image: url('../images/header_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0; 
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.port-image h2 {
+    display: inline-block;
+    padding: 5px 60px;
+    font-size: 5vmax;
+    font-family: "Montserrat-Bold", sans-serif;
+    text-align: center;
+    margin: auto;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* Style for select element */
+select {
+    width: 100%; /* Make select element full width */
+    padding: 10px; /* Add padding on all sides */
+    border-radius: 5px; /* Add round edges */
+    text-align: left; /* Align text to the left */
+}
+
+/* Style for select options */
+select option {
+    border-radius: 5px; /* Add round edges */
+    padding: 5px; /* Add padding */
+}
