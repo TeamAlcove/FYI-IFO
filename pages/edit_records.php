@@ -115,6 +115,8 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
                 }
             }
             echo "<input type='submit' name='update' value='Update'>";
+            // Add delete button
+            echo "<button type='submit' name='delete'>Delete</button>";
             echo "</form>";
 
             // Process the form submission
@@ -137,6 +139,30 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
                     echo "Error updating record: " . $conn->error;
                 }
             }
+            
+// Process delete request
+if (isset($_POST['delete'])) {
+    // Disable foreign key checks
+    $conn->query("SET foreign_key_checks = 0");
+
+    // Build the delete query
+    $delete_query = "DELETE FROM $table WHERE $primary_key = $record_id";
+
+    // Execute the delete query
+    if ($conn->query($delete_query) === TRUE) {
+        echo "Record deleted successfully";
+        // Redirect to a different page after deletion if needed
+        // header("Location: some_page.php");
+        // exit();
+    } else {
+        echo "Error deleting record: " . $conn->error;
+    }
+
+    // Re-enable foreign key checks
+    $conn->query("SET foreign_key_checks = 1");
+}
+
+
         } else {
             echo "Record not found.";
         }
@@ -163,6 +189,3 @@ $conn->close();
         disableMobile: true,
     });
 </script>
-
-</body>
-</html>

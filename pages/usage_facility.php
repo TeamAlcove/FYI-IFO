@@ -91,7 +91,7 @@
                             }
                             // Add Edit button with link to edit_record.php
                             if ($primary_key !== "") {
-                                echo "<td><a href='edit_record.php?table=" . urlencode($table_name) . "&id=" . urlencode($record_row[$primary_key]) . "'>Edit</a>
+                                echo "<td><a href='edit_records.php?table=" . urlencode($table_name) . "&id=" . urlencode($record_row[$primary_key]) . "'>Edit</a>
                                 </td>";
                             } else {
                                 echo "<td>Edit</td>"; // No primary key found, disable edit
