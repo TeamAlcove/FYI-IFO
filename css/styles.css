@@ -87,7 +87,7 @@ nav {
 
 body {
     background-image: url('../images/backgroundimg.png');
-    background-size: 100vw 100vh; /* Cover the entire viewport width and height */
+    background-size: 100vh; /* Cover the entire viewport width and height */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-position: center; /* Center the image horizontally and align it to the bottom */
     background-attachment: fixed;

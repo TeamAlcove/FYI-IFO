@@ -5,6 +5,7 @@ select, input[type="month"], input[type="submit"] {
     border-radius: 5px; /* Add round edges */
     text-align: left; /* Align text to the left */
     margin-top: 5px; /* Add margin on top of inputs */
+    vertical-align: top; /* Align inputs to the top */
 }
 
 /* Label styles */
@@ -14,7 +15,6 @@ label {
     margin-bottom: 5px; /* Adjust margin-bottom */
     align-self: flex-start; /* Align labels to the start */
     display: inline-block; /* Make labels inline */
-    width: 100px; /* Set width for labels */
     vertical-align: top; /* Align labels to the top */
     margin-right: 10px; /* Add margin to the right */
 }
@@ -26,7 +26,6 @@ select {
     font-family: 'Montserrat-Regular', sans-serif; /* Set font */
     font-size: 16px; /* Set font size */
     color: #000; /* Set text color */
-    vertical-align: top; /* Align dropdown to the top */
 }
 
 /* Style for dropdown when hovered */

@@ -7,6 +7,8 @@
     <!-- Include CSS and JS files for date and time pickers -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel = "stylesheet" href ="../css/styles.css">
+    <link rel = "stylesheet" href ="../css/edit.css">
 
     <style>
         label {
@@ -39,7 +41,9 @@
     </div>
 </header>
 
-
+<div class = "port-image">
+    <h2>Edit Record</h2>
+</div>
 
 <?php
 // Database connection
@@ -83,19 +87,20 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            // Display the form with pre-filled data for editing
-            echo "<h2>Edit Record</h2>";
+            // Display the form with pre-filled data for editin
+            echo "<div class='form-container'>";
             echo "<form method='post'>";
             echo "<input type='hidden' name='table' value='$table'>";
             echo "<input type='hidden' name='id' value='$record_id'>";
             foreach ($row as $key => $value) {
+                echo "<div class='form-field'>";
                 echo "<label for='$key'>$key:</label>";
                 if ($key === 'date') {
                     // Date picker
-                    echo "<input type='text' id='$key' name='$key' value='$value' class='datepicker'><br>";
+                    echo "<input type='text' id='$key' name='$key' value='$value' class='datepicker'>";
                 } elseif ($key === 'time') {
                     // Time picker
-                    echo "<input type='text' id='$key' name='$key' value='$value' class='timepicker'><br>";
+                    echo "<input type='text' id='$key' name='$key' value='$value' class='timepicker'>";
                 } elseif (substr($key, -3) === '_id') {
                     // Foreign key dropdown
                     $foreign_key = substr($key, 0, -3);
@@ -108,16 +113,21 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
                         $selected = ($value == $option_value) ? 'selected' : '';
                         echo "<option value='$option_value' $selected>$option_text</option>";
                     }
-                    echo "</select><br>";
+                    echo "</select>";
                 } else {
                     // Normal text input
-                    echo "<input type='text' id='$key' name='$key' value='$value'><br>";
+                    echo "<input type='text' id='$key' name='$key' value='$value'>";
                 }
+                echo "</div>";
             }
+            echo "<div class='form-buttons'>";
             echo "<input type='submit' name='update' value='Update'>";
             // Add delete button
             echo "<button type='submit' name='delete'>Delete</button>";
+            echo "</div>";
             echo "</form>";
+            echo "</div>";
+
 
             // Process the form submission
             if (isset($_POST['update'])) {
@@ -134,7 +144,7 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
 
                 // Execute the update query
                 if ($conn->query($update_query) === TRUE) {
-                    echo "Record updated successfully";
+                    echo "<p>Record updated successfully</p>";
                 } else {
                     echo "Error updating record: " . $conn->error;
                 }
@@ -150,27 +160,26 @@ if (isset($_POST['delete'])) {
 
     // Execute the delete query
     if ($conn->query($delete_query) === TRUE) {
-        echo "Record deleted successfully";
+        echo "<p>Record deleted successfully</p>";
         // Redirect to a different page after deletion if needed
         // header("Location: some_page.php");
         // exit();
     } else {
-        echo "Error deleting record: " . $conn->error;
+        echo "<p>Error deleting record: </p>" . $conn->error;
     }
 
     // Re-enable foreign key checks
     $conn->query("SET foreign_key_checks = 1");
 }
 
-
         } else {
-            echo "Record not found.";
+            echo "<p>Record not found.</p>";
         }
     } else {
-        echo "Primary key not found for table: $table";
+        echo "<p>Primary key not found for table: $table</p>";
     }
 } else {
-    echo "Table name or record ID not provided.";
+    echo "<p>Table name or record ID not provided.<p>";
 }
 
 $conn->close();

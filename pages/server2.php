@@ -315,17 +315,17 @@ echo "<div class='right'>"; // Add a container for the right side of the form
 echo "<div class='input-columns'>";
 
 echo "<div class='input-group'>";
-echo "<label for='Req_Name'>Req_Name:</label>";
+echo "<label for='Req_Name'>Requester:</label>";
 echo "<input type='text' id='Req_Name' name='Req_Name'>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Req_Email'>Req_Email:</label>";
+echo "<label for='Req_Email'>Email:</label>";
 echo "<input type='text' id='Req_Email' name='Req_Email'>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Office_Name'>Office_Name:</label>";
+echo "<label for='Office_Name'>Office:</label>";
 echo "<select id='Office_Name' name='Office_Name'>";
 $office_query = "SELECT Office_ID, Office_Name FROM officeorprogram";
 $office_result = $conn->query($office_query);
@@ -340,12 +340,12 @@ echo "</div>"; // Close input-columns div
 echo "<div class='input-columns'>";
 
 echo "<div class='input-group'>";
-echo "<label for='Event_Name'>Event_Name:</label>";
+echo "<label for='Event_Name'>Event Name:</label>";
 echo "<input type='text' id='Event_Name' name='Event_Name'>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Event_Purpose'>Event_Purpose:</label>";
+echo "<label for='Event_Purpose'>Purpose:</label>";
 echo "<select id='Event_Purpose' name='Event_Purpose'>";
 $purpose_query = "SELECT DISTINCT Event_Purpose_ID, Event_Purpose FROM purpose";
 $purpose_result = $conn->query($purpose_query);
@@ -356,7 +356,7 @@ echo "</select>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Activity_Name'>Activity_Name:</label>";
+echo "<label for='Activity_Name'>Activity:</label>";
 echo "<select id='Activity_Name' name='Activity_Name'>";
 $activity_query = "SELECT Activity_ID, Activity_Name FROM activity";
 $activity_result = $conn->query($activity_query);
@@ -371,7 +371,7 @@ echo "</div>"; // Close input-columns div
 echo "<div class='input-columns'>";
 
 echo "<div class='input-group'>";
-echo "<label for='Facility_Name'>Facility_Name:</label>";
+echo "<label for='Facility_Name'>Facility:</label>";
 echo "<select id='Facility_Name' name='Facility_Name'>";
 $facility_query = "SELECT Facility_ID, Facility_Name FROM facilities";
 $facility_result = $conn->query($facility_query);
@@ -382,17 +382,17 @@ echo "</select>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Event_Date'>Event_Date:</label>";
+echo "<label for='Event_Date'>Event Date:</label>";
 echo "<input type='text' id='Event_Date' name='Event_Date' class='datepicker'>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Event_Time'>Event_Time:</label>";
+echo "<label for='Event_Time'>Event Time:</label>";
 echo "<input type='text' id='Event_Time' name='Event_Time' class='timepicker'>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Expected_Population'>Expected_Population:</label>";
+echo "<label for='Expected_Population'>Expected Population:</label>";
 echo "<input type='text' id='Expected_Population' name='Expected_Population'>";
 echo "</div>";
 
@@ -401,17 +401,17 @@ echo "</div>"; // Close input-columns div
 echo "<div class='input-columns'>";
 
 echo "<div class='input-group'>";
-echo "<label for='Permit_Date'>Permit_Date:</label>";
+echo "<label for='Permit_Date'>Permit Date:</label>";
 echo "<input type='text' id='Permit_Date' name='Permit_Date' class='datepicker'>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Permit_Time'>Permit_Time:</label>";
+echo "<label for='Permit_Time'>Permit Time:</label>";
 echo "<input type='text' id='Permit_Time' name='Permit_Time' class='timepicker'>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Admin_Name'>Admin_Name:</label>";
+echo "<label for='Admin_Name'>Admin:</label>";
 echo "<select id='Admin_Name' name='Admin_Name'>";
 $admin_query = "SELECT Admin_ID, Admin_Name FROM admin";
 $admin_result = $conn->query($admin_query);
@@ -422,7 +422,7 @@ echo "</select>";
 echo "</div>";
 
 echo "<div class='input-group'>";
-echo "<label for='Staff_Name'>Staff_Name:</label>";
+echo "<label for='Staff_Name'>Staff:</label>";
 echo "<select id='Staff_Name' name='Staff_Name'>";
 $staff_query = "SELECT Staff_ID, Staff_Name FROM staff";
 $staff_result = $conn->query($staff_query);
