@@ -17,6 +17,8 @@ h2 {
 .table-container {
     padding: 5px 20px; /* Adjust padding as needed */
     overflow-x: auto; /* Add horizontal scrollbar if content overflows */
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 table {

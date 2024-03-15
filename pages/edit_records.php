@@ -45,7 +45,7 @@
 
 <div class="port-image">
     <h2>Edit Record</h2>
-</div
+</div>
 
 <?php
 // Database connection
@@ -186,7 +186,6 @@ if (isset($_POST['delete'])) {
 $conn->close();
 ?>
 
-<!-- Initialize date and time pickers -->
 <script>
     flatpickr('.datepicker', {
         dateFormat: 'Y-m-d',
