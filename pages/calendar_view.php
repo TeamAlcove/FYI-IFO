@@ -4,37 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FYI-IFO | Calendar View</title>
+    <link rel="icon" type="image/x-icon" href="../images/MMCM_Logo_noname.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel = "stylesheet" href ="../css/styles.css">
     <link rel = "stylesheet" href ="../css/calendar.css">
-    <style>
-        /* Add CSS for calendar container */
-        .calendar-container {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-        }
-        .calendar-container div {
-            text-align: center;
-            padding: 10px;
-            border: 1px solid #ccc;
-            cursor: pointer; /* Add cursor pointer to indicate clickable */
-        }
-        .occupied {
-            background-color: #ffcccc;
-            font-weight: bold;
-        }
-        .month-select {
-            margin-bottom: 10px;
-        }
-
-        .headerItems{
-            padding:2%;
-        }
-
-    </style>
+    
 </head>
-<body>
+<body class="calendar-body ">
 
 <header>
     <div class="header-container">
@@ -55,48 +31,57 @@
 
 <div class = "port-image">
     <h2>Calendar View</h2>
+    <p>Please select a facility and a month to display the calendar.</p>
 </div>
 
 
 <!-- Month and facility selection form -->
-<form method="GET">
-    <label for="facility">Select Facility:</label>
-    <select name="facility" id="facility">
-        <!-- Populate the options dynamically -->
-        <?php
-        // Fetch facility names from the database
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "im_final";
+<form method="GET" class="form-container">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="facility">Select Facility:</label>
+            <select name="facility" id="facility">
+                <!-- Populate the options dynamically -->
+                <?php
+                // Fetch facility names from the database
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $database = "im_final";
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $database);
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $database);
 
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
 
-        // Fetch facility names
-        $facility_query = "SELECT Facility_Name FROM facilities";
-        $facility_result = $conn->query($facility_query);
-        if ($facility_result->num_rows > 0) {
-            while ($row = $facility_result->fetch_assoc()) {
-                $facility_name = $row['Facility_Name'];
-                echo "<option value='$facility_name'>$facility_name</option>";
-            }
-        }
+                // Fetch facility names
+                $facility_query = "SELECT Facility_Name FROM facilities";
+                $facility_result = $conn->query($facility_query);
+                if ($facility_result->num_rows > 0) {
+                    while ($row = $facility_result->fetch_assoc()) {
+                        $facility_name = $row['Facility_Name'];
+                        echo "<option value='$facility_name'>$facility_name</option>";
+                    }
+                }
 
-        // Close the database connection
-        $conn->close();
-        ?>
-    </select>
+                // Close the database connection
+                $conn->close();
+                ?>
+            </select>
+        </div>
 
-    <label for="month">Select Month:</label>
-    <input type="month" id="month" name="month">
+        <div class="form-group">
+            <label for="month">Select Month:</label>
+            <input type="month" id="month" name="month">
+        </div>
 
-    <input type="submit" value="Generate Calendar">
+        <div class="form-group">
+            <input type="submit" value="Generate Calendar">
+        </div>
+    </div>
 </form>
 
 <!-- Calendar display -->
@@ -150,7 +135,7 @@ if (isset($_GET['facility']) && isset($_GET['month'])) {
         }
     }
 } else {
-    echo "<p>Please select a facility and a month to display the calendar.</p>";
+    echo "<p style=\"color: #000; text-align: center;\">Please select a facility and a month to display the calendar.</p>";
 }
 ?>
 </div>

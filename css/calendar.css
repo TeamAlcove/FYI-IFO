@@ -9,6 +9,15 @@
     src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
 }
 
+/* Calendar Body */
+.calendar-body {
+    background-image: url('../images/backgroundimg.png');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the image horizontally and vertically */
+    margin: 0;
+}
+
 /* Header Image */
 .port-image {
     position: relative;
@@ -33,16 +42,142 @@
     box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
-/* Style for select element */
-select {
-    width: 100%; /* Make select element full width */
-    padding: 10px; /* Add padding on all sides */
-    border-radius: 5px; /* Add round edges */
-    text-align: left; /* Align text to the left */
+.port-image p {
+    color: #fff;
+    text-align: center;
+    font-family: "Montserrat-Regular", sans-serif;
 }
 
-/* Style for select options */
-select option {
+/* Form */
+.form-container {
+    width: calc(100% - 60px); /* Adjusted width with left and right margins */
+    margin: 0 auto; /* Center the form */
+    padding: 10px 30px; /* Adjust padding */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of form groups */
+}
+
+.form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align items vertically in each row */
+}
+
+.form-group {
+    flex: 0 0 calc(33.33% - 10px); 
+    margin-right: 10px; /* Adjust spacing between columns */
+    display: flex;
+    flex-direction: column; /* Align label and input vertically */
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+/* Select and input styles */
+select, input[type="month"], input[type="submit"] {
+    width: 90%; /* Make select, month input, and button full width */
+    padding: 10px; /* Add padding */
     border-radius: 5px; /* Add round edges */
-    padding: 5px; /* Add padding */
+    text-align: left; /* Align text to the left */
+    margin-top: 5px; /* Add margin on top of inputs */
+}
+
+/* Submit button */
+input[type="submit"] {
+    color: #fff;
+    font-size: 18px;
+    padding: 15px 35px;
+    border-radius: 50px;
+    border: 0;
+    outline: 0;
+    background-color: #e50019;
+    font-family: 'Montserrat-Bold', sans-serif;
+    transition: box-shadow 0.3s, background-color 0.3s;
+    margin: auto; /* Center the button horizontally */
+    display: block; /* Ensure the button takes full width of its container */
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Label styles */
+.form-container label {
+    font-family: 'Montserrat-Bold';
+    color: #000000;
+    margin-bottom: 5px; /* Adjust margin-bottom */
+    align-self: flex-start; /* Align labels to the start */
+}
+
+/* Dropdown styles */
+select,
+input[type="month"] {
+    width: 100%; /* Make the input full width */
+    padding: 10px; /* Add padding */
+    border-radius: 5px; /* Add rounded corners */
+    border: 1px solid #000; /* Add border */
+    background-color: #fff; /* Set background color */
+    font-family: 'Montserrat-Regular', sans-serif; /* Set font */
+    font-size: 16px; /* Set font size */
+    color: #000; /* Set text color */
+}
+
+/* Style for dropdown and month input when hovered */
+select:hover,
+input[type="month"]:hover {
+    border-color: #666; /* Change border color on hover */
+}
+
+/* Style for dropdown and month input when focused */
+select:focus,
+input[type="month"]:focus {
+    border-color: #e50019; /* Change border color when focused */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(229, 0, 25, 0.5); /* Add box shadow when focused */
+}
+
+/* Calendar styles */
+.calendar-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin: 0 auto; /* Center the calendar container horizontally */
+    margin: 10px 50px 10px 50px;
+    font-family: 'Montserrat-Regular', sans-serif;
+}
+
+/* Calendar day styles */
+.calendar-container div {
+    text-align: center;
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer; /* Add cursor pointer to indicate clickable */
+}
+
+/* Calendar day styles when occupied */
+.occupied {
+    text-align: center;
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
+    background-color: #ffcccc;
+    font-family: 'Montserrat-Bold', sans-serif; 
+    border: 1px solid #e50019;
+    border-radius: 10px;
+    color: #e50019;
+}
+
+/* Calendar day styles when clickable */
+.calendar-container div a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+}
+
+/* Calendar day styles when hovered */
+.calendar-container div:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
 }

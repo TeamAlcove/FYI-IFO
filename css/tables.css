@@ -1,0 +1,48 @@
+/* Fonts */
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+h2 {
+    font-family: "Montserrat-Bold", sans-serif;
+}
+
+/* Table styles */
+.table-container {
+    padding: 5px 50px; 
+}
+
+table {
+    border-collapse: collapse; /* Collapse borders into a single border */
+    width: 100%; /* Table takes up full width of its container */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Add borders around cells */
+    padding: 8px; /* Add padding inside cells */
+    text-align: left; /* Align text to the left within cells */
+}
+
+td {
+    font-family: "Montserrat-Regular", sans-serif;
+    
+}
+
+th {
+    background-color: #f2f2f2; /* Light gray background for table headers */
+    font-family: "Montserrat-Bold", sans-serif;
+    text-align: center;
+}
+tr:hover {
+    background-color: #f2f2f2; /* Highlight rows on hover */
+}
+/* Additional styling for specific elements */
+.mainContents {
+    margin-top: 20px; /* Add some margin above the table */
+}
